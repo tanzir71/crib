@@ -16,13 +16,20 @@ export function voiceFor(lang) {
   for (const f of FALLBACK[base] || []) if (!pool.length) pool = prefix(f);
   return pool.find(v => v.localService) || pool[0] || null;
 }
+/** 'yes' if a matching voice exists, 'no' if voices are loaded but none fit, 'unknown' while the list is still loading. */
+export function canSpeak(lang) {
+  if (!synth) return 'no';
+  if (!voices.length) refresh();
+  if (!voices.length) return 'unknown';
+  return voiceFor(lang) ? 'yes' : 'no';
+}
 const clean = t => t.replace(/\{x\}|…/g, ' ').replace(/·/g, ', ').replace(/[“”「」]/g, '');
 
 let loopTimer = null;
 export function stop() { clearTimeout(loopTimer); loopTimer = null; synth?.cancel(); }
 
 export function speak(text, lang, { rate = 0.9, onend } = {}) {
-  if (!synth) return false;
+  if (!synth || canSpeak(lang) === 'no') return false; // never read a language with the wrong voice
   synth.cancel();
   const u = new SpeechSynthesisUtterance(clean(text));
   u.lang = lang; u.rate = rate;
@@ -35,6 +42,7 @@ export function speak(text, lang, { rate = 0.9, onend } = {}) {
 /** Play a list of phrases with pauses, like a voice-memo loop. */
 export function loop(texts, lang, onStep, onDone, gap = 1400) {
   stop();
+  if (!synth || canSpeak(lang) === 'no') return false;
   let i = 0;
   const next = () => {
     if (i >= texts.length) { loopTimer = null; onDone?.(); return; }
@@ -42,4 +50,5 @@ export function loop(texts, lang, onStep, onDone, gap = 1400) {
     speak(texts[i], lang, { onend: () => { i++; loopTimer = setTimeout(next, gap); } });
   };
   next();
+  return true;
 }

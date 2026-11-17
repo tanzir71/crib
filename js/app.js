@@ -141,6 +141,12 @@ function finish() {
 }
 
 // ------------------------------------------------------------------ actions
+/** Speak, or explain why not: a missing voice would otherwise read the line with the wrong accent. */
+function say(text, code, opts) {
+  if (speak(text, D.meta(code)?.tts || code, opts)) return true;
+  toast(`No ${D.meta(code)?.name || 'matching'} voice on this device. Add one in your system’s speech settings.`);
+  return false;
+}
 function toast(msg) { ui.toast = msg; render(); clearTimeout(toast.t); toast.t = setTimeout(() => { ui.toast = null; render(); }, 2600); }
 
 async function onClick(e) {
@@ -149,7 +155,7 @@ async function onClick(e) {
   const act = el.dataset.act, ds = el.dataset;
   if (el.tagName === 'A' && act !== 'end-recall') e.preventDefault();
   switch (act) {
-    case 'play': speak(ds.text, D.meta(ds.code)?.tts || ds.code); break;
+    case 'play': say(ds.text, ds.code); break;
     case 'mode': { const L = getLang(ds.code); if (L) { L.mode = ds.mode; save(); if (parse()[0] === 'sheet') location.hash = '#/today'; render(); } break; }
     case 'lang': state.active = ds.code; save(); await ensure(ds.code); location.hash = '#/today'; render(); break;
     case 'pick': { const i = ui.picks.indexOf(ds.code); i >= 0 ? ui.picks.splice(i, 1) : ui.picks.push(ds.code); render(); break; }
@@ -185,8 +191,8 @@ async function onClick(e) {
       const s = D.sheet(ds.code, ds.sheet);
       const its = s.kind === 'lens' ? [...(s.core || []).map(id => D.item(ds.code, id)), ...s.items] : s.items;
       const texts = its.filter(Boolean).map(it => { const ex = D.example(ds.code, it); return it.frame && ex ? ex.t : D.blank(it.t); });
+      if (!loop(texts, D.meta(ds.code)?.tts || ds.code, null, () => { ui.looping = null; render(); })) { say('', ds.code); break; }
       ui.looping = k; render();
-      loop(texts, D.meta(ds.code)?.tts || ds.code, null, () => { ui.looping = null; render(); });
       break;
     }
     case 'print': window.print(); break;
@@ -210,7 +216,7 @@ async function onClick(e) {
     case 'card-read': {
       const L = getLang(ds.code), dt = D.pack(ds.code).diet;
       const text = [...(L.diet || []).map(k => dt.options[k]?.t), dt.ask, dt.thanks].filter(Boolean).join(' ');
-      speak(text, D.meta(ds.code)?.tts || ds.code, { rate: 0.85 }); break;
+      say(text, ds.code, { rate: 0.85 }); break;
     }
     case 'export': download(`crib-backup-${dateKey()}.json`, exportJSON()); toast('Backup saved to your downloads.'); render(); break;
     case 'ics': {
@@ -260,7 +266,7 @@ function onKey(e) {
   if ((e.key === ' ' || e.key === 'Enter') && !S.revealed) { e.preventDefault(); S.revealed = true; render(); }
   else if (S.revealed && ['1', '2', '3'].includes(e.key)) gradeCard(Number(e.key) - 1);
   else if (e.key === 'h') { S.hint = true; render(); }
-  else if (e.key === 'p') { const cur = S.queue[S.pos]; const it = D.item(cur.code, cur.id, state.custom[cur.code] || []); if (it) speak(D.blank(it.t), D.meta(cur.code)?.tts || cur.code); }
+  else if (e.key === 'p') { const cur = S.queue[S.pos]; const it = D.item(cur.code, cur.id, state.custom[cur.code] || []); if (it) say(D.blank(it.t), cur.code); }
 }
 
 boot();
