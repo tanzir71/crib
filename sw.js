@@ -1,5 +1,5 @@
 // Crib service worker: offline app shell, cached language packs and fonts.
-const VERSION = 'crib-v2'; // bump on every release so the shell is re-cached
+const VERSION = 'crib-v3'; // bump on every release so the shell is re-cached
 const FONTS = 'crib-fonts-v1';
 const SHELL = [
   './', './index.html', './styles.css', './manifest.webmanifest',
