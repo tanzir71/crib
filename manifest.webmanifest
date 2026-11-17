@@ -1,0 +1,22 @@
+{
+  "name": "Crib · cheat sheets for any language",
+  "short_name": "Crib",
+  "description": "Learn a small core of phrases that work everywhere. Cram tonight, talk tomorrow. Offline, no account.",
+  "start_url": "./#/today",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F2EEE3",
+  "theme_color": "#F2EEE3",
+  "categories": ["education", "travel", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Search phrases", "url": "./#/search", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Mixed recall", "url": "./#/recall/mixed", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

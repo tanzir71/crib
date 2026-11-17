@@ -1,0 +1,223 @@
+{
+ "version": 2,
+ "languages": [
+  {
+   "code": "es-MX",
+   "name": "Spanish",
+   "native": "Español",
+   "badge": "ES",
+   "tts": "es-MX",
+   "variant": "Mexico",
+   "pack": "data/es-MX.json"
+  },
+  {
+   "code": "fr-FR",
+   "name": "French",
+   "native": "Français",
+   "badge": "FR",
+   "tts": "fr-FR",
+   "pack": "data/fr-FR.json"
+  },
+  {
+   "code": "de-DE",
+   "name": "German",
+   "native": "Deutsch",
+   "badge": "DE",
+   "tts": "de-DE",
+   "pack": "data/de-DE.json"
+  },
+  {
+   "code": "it-IT",
+   "name": "Italian",
+   "native": "Italiano",
+   "badge": "IT",
+   "tts": "it-IT",
+   "pack": "data/it-IT.json"
+  },
+  {
+   "code": "pt-BR",
+   "name": "Portuguese",
+   "native": "Português",
+   "badge": "PT",
+   "tts": "pt-BR",
+   "variant": "Brazil",
+   "pack": "data/pt-BR.json"
+  },
+  {
+   "code": "ja-JP",
+   "name": "Japanese",
+   "native": "日本語",
+   "badge": "日",
+   "tts": "ja-JP",
+   "pack": "data/ja-JP.json"
+  },
+  {
+   "code": "zh-CN",
+   "name": "Mandarin",
+   "native": "中文",
+   "badge": "中",
+   "tts": "zh-CN",
+   "pack": "data/zh-CN.json"
+  },
+  {
+   "code": "ko-KR",
+   "name": "Korean",
+   "native": "한국어",
+   "badge": "한",
+   "tts": "ko-KR",
+   "pack": "data/ko-KR.json"
+  },
+  {
+   "code": "ar",
+   "name": "Arabic",
+   "native": "العربية",
+   "badge": "ع",
+   "tts": "ar-SA",
+   "variant": "Modern Standard",
+   "rtl": true,
+   "pack": "data/ar.json"
+  },
+  {
+   "code": "ru-RU",
+   "name": "Russian",
+   "native": "Русский",
+   "badge": "RU",
+   "tts": "ru-RU",
+   "pack": "data/ru-RU.json"
+  },
+  {
+   "code": "tr-TR",
+   "name": "Turkish",
+   "native": "Türkçe",
+   "badge": "TR",
+   "tts": "tr-TR",
+   "pack": "data/tr-TR.json"
+  },
+  {
+   "code": "vi-VN",
+   "name": "Vietnamese",
+   "native": "Tiếng Việt",
+   "badge": "VI",
+   "tts": "vi-VN",
+   "pack": "data/vi-VN.json"
+  },
+  {
+   "code": "th-TH",
+   "name": "Thai",
+   "native": "ไทย",
+   "badge": "ไทย",
+   "tts": "th-TH",
+   "pack": "data/th-TH.json"
+  },
+  {
+   "code": "id-ID",
+   "name": "Indonesian",
+   "native": "Bahasa Indonesia",
+   "badge": "ID",
+   "tts": "id-ID",
+   "pack": "data/id-ID.json"
+  },
+  {
+   "code": "ms-MY",
+   "name": "Malay",
+   "native": "Bahasa Melayu",
+   "badge": "MS",
+   "tts": "ms-MY",
+   "variant": "Malaysia",
+   "pack": "data/ms-MY.json"
+  },
+  {
+   "code": "nl-NL",
+   "name": "Dutch",
+   "native": "Nederlands",
+   "badge": "NL",
+   "tts": "nl-NL",
+   "pack": "data/nl-NL.json"
+  },
+  {
+   "code": "pl-PL",
+   "name": "Polish",
+   "native": "Polski",
+   "badge": "PL",
+   "tts": "pl-PL",
+   "pack": "data/pl-PL.json"
+  },
+  {
+   "code": "el-GR",
+   "name": "Greek",
+   "native": "Ελληνικά",
+   "badge": "ΕΛ",
+   "tts": "el-GR",
+   "pack": "data/el-GR.json"
+  },
+  {
+   "code": "uk-UA",
+   "name": "Ukrainian",
+   "native": "Українська",
+   "badge": "УК",
+   "tts": "uk-UA",
+   "pack": "data/uk-UA.json"
+  },
+  {
+   "code": "ro-RO",
+   "name": "Romanian",
+   "native": "Română",
+   "badge": "RO",
+   "tts": "ro-RO",
+   "pack": "data/ro-RO.json"
+  },
+  {
+   "code": "cs-CZ",
+   "name": "Czech",
+   "native": "Čeština",
+   "badge": "CZ",
+   "tts": "cs-CZ",
+   "pack": "data/cs-CZ.json"
+  },
+  {
+   "code": "sv-SE",
+   "name": "Swedish",
+   "native": "Svenska",
+   "badge": "SV",
+   "tts": "sv-SE",
+   "pack": "data/sv-SE.json"
+  },
+  {
+   "code": "sw-KE",
+   "name": "Swahili",
+   "native": "Kiswahili",
+   "badge": "SW",
+   "tts": "sw-KE",
+   "variant": "Kenya",
+   "pack": "data/sw-KE.json"
+  },
+  {
+   "code": "fil-PH",
+   "name": "Tagalog",
+   "native": "Tagalog",
+   "badge": "TL",
+   "tts": "fil-PH",
+   "variant": "Filipino",
+   "pack": "data/fil-PH.json"
+  },
+  {
+   "code": "he-IL",
+   "name": "Hebrew",
+   "native": "עברית",
+   "badge": "עב",
+   "tts": "he-IL",
+   "rtl": true,
+   "pack": "data/he-IL.json"
+  },
+  {
+   "code": "fa-IR",
+   "name": "Persian",
+   "native": "فارسی",
+   "badge": "فا",
+   "tts": "fa-IR",
+   "variant": "Farsi",
+   "rtl": true,
+   "pack": "data/fa-IR.json"
+  }
+ ]
+}
